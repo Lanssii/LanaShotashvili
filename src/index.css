@@ -8,6 +8,7 @@
 
 body {
   font-family: var(--font-anton);
+  background: var(--color-cream);
 }
 
 .anton-regular {

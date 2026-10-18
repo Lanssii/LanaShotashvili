@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="bg-cream py-3.5">
+    <header className="py-3.5">
       <div className="custom-container flex justify-between items-center">
         <div className="text-primary text-[19px]">
           <a href="/">Portfolio</a>
