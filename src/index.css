@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #234a5c;
+  --color-cream: #fff9e8;
+  --font-anton: "Anton", sans-serif;
+}
+
+body {
+  font-family: var(--font-anton);
+}
+
+.anton-regular {
+  font-family: var(--font-anton);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@utility custom-container {
+  @apply max-w-300 w-full mx-auto px-7.5;
+}
