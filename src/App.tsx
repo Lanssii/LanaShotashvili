@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <section>Lana</section>
+      <section className="bg-amber-500">Lana</section>
     </>
   );
 }
