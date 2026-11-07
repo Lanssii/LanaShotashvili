@@ -1,10 +1,26 @@
+import React, { useState, useEffect } from "react";
+
 const Hero = () => {
+  // state for animation
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       {/* --- Section with Img and role title --- */}
       <section className="bg-[#FFF8E5] w-full relative overflow-hidden flex justify-center border-b border-[#d6d3cc]/50">
         <div className="relative w-full max-w-[1350px] h-[85vh] min-h-[550px] max-h-[740px] flex flex-col justify-between">
-          <div className="relative z-20 w-full pt-[30%] md:pt-[40%] lg:pt-[20%] pl-[40px] md:pl-[80px] flex flex-col items-start pointer-events-none">
+          <div
+            className={`relative z-20 w-full pt-[30%] md:pt-[40%] lg:pt-[20%] pl-[40px] md:pl-[80px] flex flex-col items-start pointer-events-none transition-all duration-1000 ease-out ${
+              isLoaded
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-16"
+            }`}
+          >
             <span className="font-[Amiko] font-bold text-[#F28C38] text-[10px] md:text-[14px] uppercase tracking-[0.1em] ml-1 mb-1 md:mb-2">
               Lana
             </span>
@@ -13,14 +29,24 @@ const Hero = () => {
             </h1>
           </div>
 
+          {/* Hero img with animation */}
           <img
-            src="images/hero-img.png"
+            src="/images/hero-img.png"
             alt="Lana"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 h-[75%] sm:h-[80%] md:h-[95%] w-auto max-w-none object-cover object-top grayscale contrast-[1.15] pointer-events-none"
+            className={`absolute bottom-0 left-1/2 -translate-x-1/2 z-10 h-[75%] sm:h-[80%] md:h-[95%] w-auto max-w-none object-cover object-top grayscale contrast-[1.15] pointer-events-none transition-all duration-1000 delay-200 ease-out ${
+              isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
           />
 
-          <div className="relative z-30 w-full flex justify-end pr-[20px] md:pr-[80ps] pb-[30px] md:pb-[10%] pointer-events-none mt-auto">
-            <h1 className="font-[Anton] text-[60px] sm-text-[80px] md:text-[130px] lg:text-[150px] leading-[0.85] uppercase text-[#234A5C] tracking-tight">
+          {/* Text with animation */}
+          <div
+            className={`relative z-30 w-full flex justify-end pr-[20px] md:pr-[80px] pb-[30px] md:pb-[10%] pointer-events-none mt-auto transition-all duration-1000 delay-150 ease-out ${
+              isLoaded
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-16"
+            }`}
+          >
+            <h1 className="font-[Anton] text-[60px] sm:text-[80px] md:text-[130px] lg:text-[150px] leading-[0.85] uppercase text-[#234A5C] tracking-tight">
               Developer
             </h1>
           </div>
@@ -30,7 +56,12 @@ const Hero = () => {
       {/* --- Section with Documents and Social Links --- */}
       <section className="bg-[#FFF8E5] w-full pb-20 pt-10 px-4 md:px-[50px] flex justify-center">
         <div className="w-full max-w-[1350px] pl-4 md:pl-[30px]">
-          <div className="hero-actions-row flex flex-col justify-between gap-10 xl:flex-row xl:items-end border-t border-[#90e0ef]/20 xl:border-none pt-8 xl:pt-0">
+          {/* smooth show */}
+          <div
+            className={`hero-actions-row flex flex-col justify-between gap-10 xl:flex-row xl:items-end border-t border-[#90e0ef]/20 xl:border-none pt-8 xl:pt-0 transition-all duration-1000 delay-300 ease-out ${
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
             {/* Documents */}
             <div className="flex flex-col gap-4">
               <span className="font-[Amiko] font-bold text-[#234A5C]/60 uppercase tracking-[0.2em] text-[10px] md:text-[12px]">
