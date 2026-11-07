@@ -18,5 +18,5 @@ body {
 }
 
 @utility custom-container {
-  @apply max-w-300 w-full mx-auto px-7.5;
+  @apply max-w-300 w-full flex justify-center items-center mx-auto;
 }
